@@ -17,6 +17,9 @@ const asObject = (anecdote) => {
   }
 }
 
+const initialState = anecdotesAtStart.map(asObject)
+
+//action-creator functions: 
 export const voteForAnecdote = id => {
   return {
     type: 'VOTE',
@@ -24,26 +27,17 @@ export const voteForAnecdote = id => {
   }
 }
 
-//const initialState = anecdotesAtStart.map(asObject)
-
-const initialState = [ 
-  {
-    content: 'anecdote with 2 votes',
-    id: getId(),
-    votes: 2
-  },
-  {
-    content: 'anecodte with 3 votes',
-    id: getId(),
-    votes: 3
-  },
-  {
-    content: 'anecdote with 1 vote',
-    id: getId(),
-    votes: 1
+export const createAnecdote = content => {
+  return {
+    type: 'NEW_ANECDOTE',
+    data: {
+      content,
+      id: getId(),
+      votes: 0
+    }
   }
+}
 
-]
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
