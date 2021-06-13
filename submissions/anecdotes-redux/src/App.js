@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { voteForAnecdote, getId } from './reducers/anecdoteReducer'
 
 const App = () => {
+  //const anecdotes = useSelector(state => state).sort((a, b) => parseInt(b.likes) - parseInt(a.likes))
   const anecdotes = useSelector(state => state)
+ 
   const dispatch = useDispatch()
 
   const vote = (id) => dispatch(voteForAnecdote(id))
