@@ -11,7 +11,7 @@ const notifReducer = (state = initialNotif, action) => {
     switch (action.type) {
         case 'NEW_NOTIF':
             return action.data
-        default: return initialNotif
+        default: return state
     }
 }
 

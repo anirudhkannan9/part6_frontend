@@ -42,6 +42,7 @@ export const createAnecdote = content => {
 const anecdoteReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'VOTE':
+      //console.log('ACTION ', action)
       const id = action.data.id
       const anecdoteToVote = state.find(a => a.id === id)
       const votedAnecdote = {
