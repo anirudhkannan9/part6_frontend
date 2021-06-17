@@ -22,15 +22,15 @@ const Notes = () => {
       : notes.filter(note => !note.important)
   })
 
+  const toggleImportance = async note => dispatch(toggleImportanceOf(note))
+
   return(
     <ul>
       {notes.map(note =>
         <Note
           key={note.id}
           note={note}
-          handleClick={() => 
-            dispatch(toggleImportanceOf(note.id))
-          }
+          handleClick={() => toggleImportance(note)}
         />
       )}
     </ul>
