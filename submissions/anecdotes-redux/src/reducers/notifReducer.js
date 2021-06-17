@@ -1,4 +1,4 @@
-const initialNotif = "Just seeing if notifReducer works"
+const initialNotif = ''
 
 export const createNotif = message => {
     return {
