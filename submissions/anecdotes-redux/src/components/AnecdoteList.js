@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { voteForAnecdote } from '../reducers/anecdoteReducer'
+import { setFilter } from '../reducers/filterReducer'
 import { createNotif } from '../reducers/notifReducer'
 
 const AnecdoteList = () => {
-    const anecdotes = useSelector(state => state.anecdotes)
+    const filter = useSelector(state => state.filter.filter)
+    let anecdotes = useSelector(state => state.anecdotes)
+    if (filter !== '' || filter !== "" || filter !== " ") {
+        anecdotes = anecdotes.filter(a => a.content.toLowerCase().includes(filter))
+    }
+    const notif = useSelector(state => state.notif)
     const dispatch = useDispatch()
 
     const vote = anecdote => {
