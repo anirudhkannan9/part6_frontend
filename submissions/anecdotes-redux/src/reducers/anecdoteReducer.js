@@ -33,7 +33,7 @@ const anecdoteReducer = (state = [], action) => {
         votes: anecdoteToVote.votes + 1
       }
     
-      return state.slice().map(a => a.id !== id ? a : votedAnecdote).sort((a, b) => parseInt(b.votes) - parseInt(a.votes))
+      return state.slice().map(a => a.id !== id ? a : votedAnecdote)
     default: console.log('action', action)
   }
 
@@ -49,14 +49,10 @@ export const voteForAnecdote = id => {
   }
 }
 
-export const createAnecdote = content => {
+export const createAnecdoteAction = anecdote => {
   return {
     type: 'NEW_ANECDOTE',
-    data: {
-      content,
-      id: getId(),
-      votes: 0
-    }
+    data: anecdote
   }
 }
 
