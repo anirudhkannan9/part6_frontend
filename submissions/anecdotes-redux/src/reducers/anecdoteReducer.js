@@ -51,19 +51,15 @@ export const voteForAnecdote = id => {
   }
 }
 
-export const createAnecdoteAction = anecdote => {
-  return {
-    type: 'NEW_ANECDOTE',
-    data: anecdote
+export const createAnecdoteAction = content => {
+  return async dispatch => {
+    const newAnecdote = await anecdoteService.createAnecdoteService(content)
+    dispatch({
+      type: 'NEW_ANECDOTE',
+      data: newAnecdote
+    })
   }
 }
-
-// export const initializeAnecdotes = anecdotes => {
-//   return {
-//     type: 'INIT_ANECDOTES',
-//     data: anecdotes
-//   }
-// }
 
 export const initializeAnecdotes = () => {
   return async dispatch => {
