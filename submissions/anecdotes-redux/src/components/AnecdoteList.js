@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { initializeAnecdotes, voteForAnecdote } from '../reducers/anecdoteReducer'
+import { initializeAnecdotes, voteForAnecdoteAction, resetAnecdoteVotesService, resetAnecdoteVotesAction } from '../reducers/anecdoteReducer'
 import { setFilter } from '../reducers/filterReducer'
 import { createNotif } from '../reducers/notifReducer'
 import anecdoteService from '../services/anecdotes'
@@ -19,13 +19,17 @@ const AnecdoteList = () => {
     //const notif = useSelector(state => state.notif)
 
     const vote = async anecdote => {
-        const votedAnecdote = await anecdoteService.voteForAnecdoteService(anecdote)
-        dispatch(voteForAnecdote(votedAnecdote.id))
-        dispatch(createNotif(`you voted for: "${votedAnecdote.content}"`))
+        dispatch(voteForAnecdoteAction(anecdote))
+        dispatch(createNotif(`you voted for: "${anecdote.content}"`))
         setTimeout(() => {
             dispatch(createNotif(''))
         }, 5000)
     }
+
+    // const resetVotes = async anecdote => {
+    //     dispatch(resetAnecdoteVotesAction(anecdote))
+    //     dispatch(initializeAnecdotes())
+    // }
 
     return (
         <>
@@ -37,6 +41,7 @@ const AnecdoteList = () => {
                     <div>
                         has {anecdote.votes}
                         <button onClick={() => vote(anecdote)}>vote</button>
+                        {/* <button onClick={() => resetVotes(anecdote)}>reset votes</button> */}
                     </div>
                 </div>
                 )}

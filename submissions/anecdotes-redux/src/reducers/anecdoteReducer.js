@@ -28,14 +28,28 @@ const anecdoteReducer = (state = [], action) => {
     case 'INIT_ANECDOTES':
       return action.data
     case 'VOTE':
-      const id = action.data.id
+      let id = action.data.id
       const anecdoteToVote = state.find(a => a.id === id)
       const votedAnecdote = {
         ...anecdoteToVote,
         votes: anecdoteToVote.votes + 1
       }
-    
+      console.log('in anecdoteReducer/VOTE, votedAnecdote after calling service and AFTER incrementing votedAnecdote: ', votedAnecdote)
+
       return state.slice().map(a => a.id !== id ? a : votedAnecdote)
+    case 'RESET_SINGLE_VOTES':
+      const idOfAnecdoteToReset = action.data.id
+      const anecdoteToReset = state.find(a => a.id === idOfAnecdoteToReset)
+      const resettedAnecdote = {
+        ...anecdoteToReset,
+        votes: 0
+      }
+      return state.slice().map(a => a.id !== idOfAnecdoteToReset ? a : resettedAnecdote)
+
+    case 'RESET_ALL_VOTES':
+      return state.slice().map(a => {
+        return { ...a, votes: 0 }
+      })
     default: console.log('action', action)
   }
 
@@ -44,13 +58,15 @@ const anecdoteReducer = (state = [], action) => {
 
 
 //action-creator functions: 
-export const voteForAnecdote = id => {
-  return {
-    type: 'VOTE',
-    data: { id }
+export const initializeAnecdotes = () => {
+  return async dispatch => {
+    const anecdotes = await anecdoteService.getAll()
+    dispatch({
+      type: 'INIT_ANECDOTES',
+      data: anecdotes
+    })
   }
 }
-
 export const createAnecdoteAction = content => {
   return async dispatch => {
     const newAnecdote = await anecdoteService.createAnecdoteService(content)
@@ -61,13 +77,30 @@ export const createAnecdoteAction = content => {
   }
 }
 
-export const initializeAnecdotes = () => {
+export const voteForAnecdoteAction = anecdote => {
   return async dispatch => {
-    const anecdotes = await anecdoteService.getAll()
+    const votedAnecdote = await anecdoteService.voteForAnecdoteService(anecdote)
     dispatch({
-      type: 'INIT_ANECDOTES',
-      data: anecdotes
+      type: 'VOTE',
+      data: votedAnecdote
     })
+  }
+}
+
+export const resetAnecdoteVotesAction = anecdote => {
+  return async dispatch => {
+    const resettedAnecdote = await anecdoteService.resetAnecdoteVotesService(anecdote)
+    dispatch({
+      type: 'RESET_SINGLE_VOTES',
+      data: resettedAnecdote 
+    })
+  }
+}
+
+export const resetAllAnecdoteVotesAction = () => {
+  return {
+    type: 'RESET_ALL_VOTES',
+    data: null
   }
 }
 
