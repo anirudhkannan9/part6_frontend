@@ -39,6 +39,11 @@
       "content": "new anecdote",
       "votes": 4,
       "id": "91P8apq"
+    },
+    {
+      "content": "createAnecdoteAction testing",
+      "votes": 5,
+      "id": "7V1iFHF"
     }
   ]
 }

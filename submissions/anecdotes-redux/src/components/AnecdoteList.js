@@ -16,7 +16,7 @@ const AnecdoteList = () => {
     if (filter !== '' || filter !== "" || filter !== " ") {
         anecdotes = anecdotes.filter(a => a.content.toLowerCase().includes(filter))
     }
-    const notif = useSelector(state => state.notif)
+    //const notif = useSelector(state => state.notif)
 
     const vote = async anecdote => {
         const votedAnecdote = await anecdoteService.voteForAnecdoteService(anecdote)
