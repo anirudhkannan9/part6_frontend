@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { connect } from 'react-redux'
 import { toggleImportanceOf } from '../reducers/noteReducer'
 
 const Note = ({ note, handleClick }) => {
@@ -11,30 +11,44 @@ const Note = ({ note, handleClick }) => {
   )
 }
 
-const Notes = () => {
-  const dispatch = useDispatch()
-  const notes = useSelector(({ filter, notes }) => {
-    if ( filter === 'ALL' ) {
-      return notes
-    }
-    return filter  === 'IMPORTANT' 
-      ? notes.filter(note => note.important)
-      : notes.filter(note => !note.important)
-  })
-
-  const toggleImportance = async note => dispatch(toggleImportanceOf(note))
-
+const Notes = (props) => {
   return(
     <ul>
-      {notes.map(note =>
+      {props.notes.map(note =>
         <Note
           key={note.id}
           note={note}
-          handleClick={() => toggleImportance(note)}
+          handleClick={() => props.toggleImportanceOf(note)}
         />
       )}
     </ul>
   )
 }
 
-export default Notes
+const mapStateToProps = (state) => {
+  if ( state.filter === 'ALL' ) {
+    return {
+      notes: state.notes
+    }
+  }
+  return {
+    notes: (state.filter === 'IMPORTANT'
+      ? state.notes.filter(note => note.important)
+      : state.notes.filter(note => !note.important)
+    )
+  }
+}
+
+//group of action creator functions passed to the connected component as props.
+const mapDispatchToProps = {
+  toggleImportanceOf,
+}
+
+
+const ConnectedNotes = connect(
+  mapStateToProps,
+  //no need to call the dispatch function separately since connect has already modified the toggleImportanceOf action creator into a form that contains the dispatch.
+  mapDispatchToProps
+)(Notes)
+
+export default ConnectedNotes
