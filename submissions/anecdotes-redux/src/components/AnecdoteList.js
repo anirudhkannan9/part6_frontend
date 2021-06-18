@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { initializeAnecdotes, voteForAnecdoteAction, resetAnecdoteVotesService, resetAnecdoteVotesAction } from '../reducers/anecdoteReducer'
-import { setFilter } from '../reducers/filterReducer'
 import { createNotif } from '../reducers/notifReducer'
-import anecdoteService from '../services/anecdotes'
 
 const AnecdoteList = () => {
     const dispatch = useDispatch()
     useEffect(() => {
       dispatch(initializeAnecdotes())
-    }, [dispatch])
+    }, [ dispatch ])
 
     const filter = useSelector(state => state.filter.filter)
     let anecdotes = useSelector(state => state.anecdotes.sort((a, b) => parseInt(b.votes) - parseInt(a.votes)))
@@ -20,10 +18,7 @@ const AnecdoteList = () => {
 
     const vote = async anecdote => {
         dispatch(voteForAnecdoteAction(anecdote))
-        dispatch(createNotif(`you voted for: "${anecdote.content}"`))
-        setTimeout(() => {
-            dispatch(createNotif(''))
-        }, 5000)
+        dispatch(createNotif(`you voted for: ${anecdote.content}`, 5))
     }
 
     // const resetVotes = async anecdote => {

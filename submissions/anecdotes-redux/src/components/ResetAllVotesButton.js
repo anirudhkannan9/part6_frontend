@@ -10,7 +10,6 @@ const ResetAllVotesButton = () => {
         console.log('resetting all votes')
         anecdoteService.resetAllVotesService()
         dispatch(resetAllAnecdoteVotesAction())
-        //dispatch(resetAllAnecdotesAction())
     }
 
     return (

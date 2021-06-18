@@ -2,7 +2,6 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { createAnecdoteAction } from '../reducers/anecdoteReducer'
 import { createNotif } from '../reducers/notifReducer'
-import anecdoteService from '../services/anecdotes'
 
 const AnecdoteForm = () => {
     const dispatch = useDispatch()
@@ -11,12 +10,8 @@ const AnecdoteForm = () => {
         event.preventDefault()
         const content = event.target.anecdote.value
         event.target.anecdote.value = ''
-        dispatch(createNotif(`you added the anecdote: "${content}"`))
+        dispatch(createNotif(`you added the anecdote: "${content}"`, 5))
         dispatch(createAnecdoteAction(content))
-        setTimeout(() => {
-            dispatch(createNotif(''))
-        }, 5000)
-
       }
     
     return (
