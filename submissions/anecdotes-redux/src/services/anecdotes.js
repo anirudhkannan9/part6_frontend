@@ -19,9 +19,23 @@ const voteForAnecdoteService = async (anecdote) => {
     return response.data
 }
 
-export default { 
+const resetAnecdoteVotesService = async (anecdote) => {
+    const resettedAnecdote = {...anecdote, votes: 0}
+    const response = await axios.put(`${baseUrl}/${anecdote.id}`, resettedAnecdote)
+    return response.data
+}
+
+const resetAllVotesService = async () => {
+    const response = await getAll()
+    response.map(a => resetAnecdoteVotesService(a))
+}
+
+const exportedObject = {
     getAll, 
     createAnecdoteService,
-    voteForAnecdoteService
-
+    voteForAnecdoteService,
+    resetAnecdoteVotesService,
+    resetAllVotesService
 }
+
+export default exportedObject

@@ -3,6 +3,7 @@ import AnecdoteForm from './components/AnecdoteForm'
 import AnecdoteList from './components/AnecdoteList'
 import Notification from './components/Notification'
 import Filter from './components/Filter'
+import ResetAllVotesButton from './components/ResetAllVotesButton'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Filter />
       <Notification />
       <AnecdoteList />
+      <ResetAllVotesButton />
       <AnecdoteForm />
     </div>
   )
