@@ -7,7 +7,7 @@
     },
     {
       "content": "state changes are made with actions",
-      "important": false,
+      "important": true,
       "id": 2
     },
     {
@@ -19,6 +19,11 @@
       "content": "async action creators w thunk",
       "important": true,
       "id": 4
+    },
+    {
+      "content": "mapdispatch to props for creating new note",
+      "important": false,
+      "id": 5
     }
   ]
 }
