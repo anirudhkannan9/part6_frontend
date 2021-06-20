@@ -1,3 +1,21 @@
+# Anecdotes: a React app with Redux 
+-	Developed React app that allows users to view, vote on, and publish software development aphorisms
+-	Implemented component-independent state management (with Redux)
+-	Used multiple reducers to manage complex state
+-	Modularized components and separated action creator functions from components
+
+
+
+
+
+
+
+
+
+
+
+# BOILERPLATE
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
