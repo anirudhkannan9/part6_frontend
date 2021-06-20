@@ -1,4 +1,23 @@
-# Getting Started with Create React App
+# Unicafe: a React app with Redux
+-	Developed React app that allows users to vote on quality of an arbitrary service – in this case, university café
+-	Implemented component-independent state management (with Redux)
+-	Wrote and ran tests for state management that ensure reducer immutability (with deep-freeze)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Boilerplate: Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
