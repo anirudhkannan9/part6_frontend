@@ -26,6 +26,8 @@ https://user-images.githubusercontent.com/47587789/122696488-06bbd600-d1f8-11eb-
 
 ### Filter the aphorisms with search
 
+
+
 ### Vote on an aphorism/aphorisms that you like
 
 ### Reset the votes of all the aphorisms in the database to 0
