@@ -4,8 +4,18 @@
 -	Used multiple reducers to manage complex state
 -	Modularized components and separated action creator functions from components
 
-## Running the app
 
+## Running the app
+
+After downloading the repository, run: 
+### `npm install` 
+to install the project's dependencies.
+
+### `npm run server` 
+Starts the server, the contents of which can be viewed at [http://localhost:3001/anecdotes](http://localhost:3001/anecdotes).
+
+### `npm start`
+(In the same repository) Starts the app, which can be used at [http://localhost:3000](http://localhost:3000/)
 
 ## Demos
 
