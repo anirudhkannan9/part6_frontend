@@ -21,6 +21,9 @@ Starts the server, the contents of which can be viewed at [http://localhost:3001
 
 ### Create a new aphorism for display and voting
 
+https://user-images.githubusercontent.com/47587789/122696488-06bbd600-d1f8-11eb-951f-27cdff851ebb.mov
+
+
 ### Filter the aphorisms with search
 
 ### Vote on an aphorism/aphorisms that you like
