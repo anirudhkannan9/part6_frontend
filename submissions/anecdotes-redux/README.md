@@ -19,7 +19,13 @@ Starts the server, the contents of which can be viewed at [http://localhost:3001
 
 ## Demos
 
-### 
+### Create a new aphorism for display and voting
+
+### Filter the aphorisms with search
+
+### Vote on an aphorism/aphorisms that you like
+
+### Reset the votes of all the aphorisms in the database to 0
 
 
 
