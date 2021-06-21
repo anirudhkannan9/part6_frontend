@@ -4,6 +4,13 @@
 -	Used multiple reducers to manage complex state
 -	Modularized components and separated action creator functions from components
 
+## Running the app
+
+
+## Demos
+
+### 
+
 
 
 
