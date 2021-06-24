@@ -17,7 +17,7 @@ Starts the server, the contents of which can be viewed at [http://localhost:3001
 ### `npm start`
 (In the same repository) Starts the app, which can be used at [http://localhost:3000](http://localhost:3000/)
 
-## Demos
+## Demos (in progress)
 
 ### Create a new aphorism for display and voting
 
