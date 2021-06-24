@@ -7,7 +7,7 @@
 
 ## Running the app
 
-After downloading the repository, run: 
+After downloading the repository, navigate to the directory in which it's contained and run:
 ### `npm install` 
 to install the project's dependencies.
 
