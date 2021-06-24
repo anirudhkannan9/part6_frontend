@@ -3,6 +3,21 @@
 -	Implemented component-independent state management (with Redux)
 -	Wrote and ran tests for state management that ensure reducer immutability (with deep-freeze)
 
+## Running the app
+
+After downloading the repository, run: 
+### `npm install` 
+to install the project's dependencies.
+
+### `npm start`
+(In the same repository) Starts the app, which can be used at [http://localhost:3000](http://localhost:3000/)
+
+## Demos
+
+### Log a vote
+
+### Reset all votes to 0
+
 
 
 
